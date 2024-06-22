@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | CV</title>
+    <title>Balthazard Grego | CV</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -85,6 +85,15 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = 'Background.png';
+        img.onload = function () {
+            var width = img.width;
+            var height = img.height;
+            var ratio = Math.min(canvas.width / width, canvas.height / height);
+            ctx.drawImage(img, 0, 0, width * ratio, height * ratio);
+        };
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
@@ -98,6 +107,7 @@
         //canvas.style.height = "600px";
       //}
 
+      canvas.style.background = "url('" + buildUrl + "/WebgGL.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
