@@ -85,15 +85,6 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
-        var ctx = canvas.getContext('2d');
-        var img = new Image();
-        img.src = 'Background.png';
-        img.onload = function () {
-            var width = img.width;
-            var height = img.height;
-            var ratio = Math.min(canvas.width / width, canvas.height / height);
-            ctx.drawImage(img, 0, 0, width * ratio, height * ratio);
-        };
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
